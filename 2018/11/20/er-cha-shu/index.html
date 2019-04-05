@@ -4,8 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="你好!hexo, Hexo">
-    <meta name="description" content="你好!hexo | Hexo">
+    <meta name="keywords" content="Hexo">
+    <meta name="description" content=" 建立一棵二叉树，试编程实现二叉树的如下基本操作
+
+按先序序列构造一棵二叉链表表示的二叉树T；
+对这棵二叉树进行遍历：先序、中序、后序以及层次遍历，分别输出结点的遍历序列；
+求二叉树的深度/结点数目/叶结点数目；(选做)
+将二叉树每个结点的">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>你好!hexo | Hexo</title>
+    <title>Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +265,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        你好!hexo
+                        
                     </div>
                 </div>
             </div>
@@ -388,7 +393,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-09-20
+                    2018-11-20
                 </div>
 
                 
@@ -404,7 +409,79 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <pre><code> 建立一棵二叉树，试编程实现二叉树的如下基本操作
+</code></pre><ol>
+<li>按先序序列构造一棵二叉链表表示的二叉树T；</li>
+<li>对这棵二叉树进行遍历：先序、中序、后序以及层次遍历，分别输出结点的遍历序列；</li>
+<li>求二叉树的深度/结点数目/叶结点数目；(选做)</li>
+<li><p>将二叉树每个结点的左右子树交换位置。（选做）<br>&lt;–!more–&gt;<br><code>`</code><br>#include<iostream><br>using namespace std;<br>//定义节点<br>typedef struct node                             //定义二叉树存储结构<br>{<br> struct node <em>lchild;<br> struct node </em>rchild;<br> char data;<br>}BiTreeNode, <em>BiTree;<br>typedef struct                                 //定义队列<br>{<br> BiTree </em>base;<br> int front;<br> int rear;<br>}Squeue;<br>int chushihua(Squeue &amp;Q)                       //出栈函数<br>{<br> Q.base = new BiTree[100];                  //分配栈的空间<br> if (!Q.base)                               //判断是否分配成功</iostream></p>
+<pre><code> return 0;                             
+</code></pre><p> Q.front = Q.rear = 0;                      //队列初始化为空<br> return 0;<br>}<br>int rudui(Squeue &amp;Q,BiTree T)                  //出队函数<br>{<br> if ((Q.rear + 1) % 100 == Q.front)         //如果队满，就退出</p>
+<pre><code> return -1;
+</code></pre><p> Q.base[Q.rear] = T;                        //入队<br> Q.rear = (Q.rear + 1) % 100;               //队列的顶加一<br> return 0;<br>}<br>int chudui(Squeue &amp;Q, BiTree &amp;S)              //出队<br>{<br> if (Q.front == Q.rear)                     //判断队列是否为空</p>
+<pre><code> return -1;
+</code></pre><p> S= Q.base[Q.front];                        //s出队<br> Q.front = (Q.front + 1) % 100;             //队尾指针加一<br> return 0;<br>}</p>
+<pre><code>                                        //按照前序顺序建立二叉树
+</code></pre><p>void createBiTree(BiTree &amp;T)                   //&amp;的意思是传进来节点指针的引用，括号内等价于 BiTreeNode* &amp;T,目的是让传递进来的指针发生改变<br>{<br> char c;<br> cin &gt;&gt; c;<br> if (‘#’ == c)                             //当遇到#时，令树的根节点为NULL，从而结束该分支的递归</p>
+<pre><code> T = NULL;
+</code></pre><p> else<br> {</p>
+<pre><code> T = new BiTreeNode;                   //创建新节点树
+ T-&gt;data = c;                          //新节点为c
+ createBiTree(T-&gt;lchild);              //创建左子树
+ createBiTree(T-&gt;rchild);              //创建右子树
+</code></pre><p> }<br>}</p>
+<pre><code>                                       //前序遍历二叉树并打印
+</code></pre><p>void preTraverse(BiTree T)<br>{<br> if (T)<br> {</p>
+<pre><code> cout &lt;&lt; T-&gt;data &lt;&lt; &quot; &quot;;              //输出中间节点
+ preTraverse(T-&gt;lchild);              //遍历左子树
+ preTraverse(T-&gt;rchild);              //遍历右子树
+</code></pre><p> }<br>}</p>
+<pre><code>                                      //中序遍历二叉树并打印
+</code></pre><p>void midTraverse(BiTree T)<br>{<br> if (T)<br> {</p>
+<pre><code> midTraverse(T-&gt;lchild);              //遍历左子树
+ cout &lt;&lt; T-&gt;data &lt;&lt; &quot; &quot;;              //遍历输出
+ midTraverse(T-&gt;rchild);              //遍历右子树
+</code></pre><p> }<br>}</p>
+<pre><code>                                     //后续遍历二叉树并打印
+</code></pre><p>void postTraverse(BiTree T)<br>{<br> if (T)<br> {</p>
+<pre><code> postTraverse(T-&gt;lchild);           //遍历左子树             
+ postTraverse(T-&gt;rchild);           //遍历右子树
+ cout &lt;&lt; T-&gt;data &lt;&lt; &quot; &quot;;            //输出节点
+</code></pre><p> }<br>}</p>
+<pre><code>                                    //层序遍历二叉树并打印
+</code></pre><p>int cengxu(BiTree T)<br>{<br> Squeue Q;<br> chushihua(Q);                          //初始化队列<br> BiTree root;<br> rudui(Q, T);                           //树的根节点入队<br> while (!(Q.front == Q.rear))           //当队列不为空时<br> {</p>
+<pre><code> chudui(Q, root);                   //根节点出队
+ cout &lt;&lt; root-&gt;data&lt;&lt;&quot; &quot;;
+ if (root-&gt;lchild)                  //如果根节点的左孩子存在，则入队
+     rudui(Q, root-&gt;lchild);
+ if (root-&gt;rchild)                  //如果根节点的右孩子存在，则入队
+     rudui(Q, root-&gt;rchild);
+</code></pre><p> }<br> cout &lt;&lt; endl;<br> return 0;<br>}<br>int deep(BiTree T)                        //求二叉树深度<br>{<br> int m=0 , n=0;<br> if (T ==NULL)</p>
+<pre><code> return 0;
+</code></pre><p> else<br> {</p>
+<pre><code>  m=deep(T-&gt;lchild);               //递归遍历左孩子深度
+  n=deep(T-&gt;rchild);               //递归遍历右孩子深度
+ if (m &gt; n)
+     return (m + 1);
+ else
+     return(n + 1);                //比较后输出大的作为深度
+</code></pre><p> }<br>}<br>int countye(BiTree T)                    //统计叶子节点个数<br>{<br> if (T == NULL)                       //如果树为空，退出</p>
+<pre><code> return 0;
+</code></pre><p> else if (T-&gt;lchild == NULL&amp;&amp;T-&gt;rchild == NULL)</p>
+<pre><code> return 1;                        //如果左右孩子都有，返回1
+</code></pre><p> else</p>
+<pre><code> return countye(T-&gt;lchild) + countye(T-&gt;rchild);
+</code></pre><p>}                                       //返回左右子树相加的叶子节点<br>void swap(BiTree T)                    //交换函数<br>{<br> BiTree S;<br> S = T-&gt;lchild;<br> T-&gt;lchild = T-&gt;rchild;<br> T-&gt;rchild = S;<br>}<br>void jiaohuan(BiTree T)                  //交换左右孩子<br>{<br> if (T == NULL)</p>
+<pre><code> return ;
+</code></pre><p> else<br> {</p>
+<pre><code> swap(T);
+ jiaohuan(T-&gt;lchild);           //中序遍历交换
+ jiaohuan(T-&gt;rchild);
+</code></pre><p> }<br>}<br>int main()<br>{<br> BiTree T;                          //声明一个指向二叉树根节点的指针<br> createBiTree(T);<br> cout &lt;&lt; “二叉树创建完成！” &lt;&lt; endl;<br> cout &lt;&lt; “前序遍历二叉树：” &lt;&lt; endl;<br> preTraverse(T);<br> cout &lt;&lt; endl;<br> cout &lt;&lt; “中序遍历二叉树：” &lt;&lt; endl;<br> midTraverse(T);<br> cout &lt;&lt; endl;<br> cout &lt;&lt; “后序遍历二叉树：” &lt;&lt; endl;<br> postTraverse(T);<br> cout &lt;&lt; endl;<br> cout &lt;&lt; “层序遍历二叉树” &lt;&lt; endl;<br> cengxu(T);<br> cout &lt;&lt; “二叉树的深度为：”;<br> cout &lt;&lt; deep(T)&lt;&lt;endl;<br> cout &lt;&lt; “叶子节点的个数为：”;<br> cout &lt;&lt; countye(T)&lt;&lt;endl;<br> jiaohuan(T);<br> cout &lt;&lt; “前序遍历交换后的二叉树：” &lt;&lt; endl;<br> preTraverse(T);<br> return 0;<br>}</p>
+</li>
+</ol>
+<p><code>`</code></p>
+
             </div>
             <hr/>
 
@@ -551,7 +628,7 @@
                     </span>
                     <a href="https://yubin0617.github.io" class="b-link-green">Hexo</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/09/20/你好-hexo/" class="b-link-green">你好!hexo</a>
+                    <a href="/2018/11/20/er-cha-shu/" class="b-link-green"></a>
                 </p>
             </div>
         </div>
@@ -576,22 +653,17 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/11/20/二叉树/">
+                <a href="/2018/11/20/bxh/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="bxh">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">bxh</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary"> 建立一棵二叉树，试编程实现二叉树的如下基本操作
-
-按先序序列构造一棵二叉链表表示的二叉树T；
-对这棵二叉树进行遍历：先序、中序、后序以及层次遍历，分别输出结点的遍历序列；
-求二叉树的深度/结点数目/叶结点数目；(选做)
-将二叉树每个结点的</div>
+                    <div class="summary"></div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-20
@@ -614,20 +686,20 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/09/19/hello-world/">
+                <a href="/2018/09/20/ni-hao-hexo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="你好!hexo">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">你好!hexo</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex</div>
+                    <div class="summary"></div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-19
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-20
                             </span>
                         <span class="publish-author">
                             
