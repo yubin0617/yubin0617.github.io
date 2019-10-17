@@ -2,7 +2,7 @@ var a_idx = 0;
 jQuery(document).ready(function($) {
     $("body").click(function(e) {
         var a = new Array
-        ("我要", "迎娶", "白", "富", "美", "走向", "人生", "巅峰", "学习", "成为", "大佬", "哇塞");
+        ("学", "习", "成", "为", "大佬", "走向", "人生", "巅峰","迎娶", "白", "富", "美", "ヾ(Ő∀Ő3)ノ");
         var $i = $("<span/>").text(a[a_idx]);
         a_idx = (a_idx + 1) % a.length;
         var x = e.pageX,
