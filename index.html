@@ -495,6 +495,41 @@ $(function () {
                     
 
                     
+                        
+
+<link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<div class="music-player">
+    
+    <div class="title center-align">
+        <i class="fa fa-music"></i>&nbsp;&nbsp;爱吾所爱
+    </div>
+    
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s12">
+            <div id="aplayer" class="music"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script>
+$(function () {
+    new APlayer({
+        container: document.getElementById('aplayer'),
+        fixed: 'false' === 'true',
+        autoplay: 'false' === 'true',
+        theme: '#42b983',
+        loop: 'all',
+        order: 'list',
+        preload: 'auto',
+        volume: Number('0.7'),
+        listFolded: 'false' === 'true',
+        listMaxHeight: '',
+        audio: JSON.parse('[{"name":"采薇","artist":"张渠","url":"http://sc1.111ttt.cn/2018/1/03/13/396131226156.mp3","cover":"/medias/music/cover2.png"},{"name":"盛夏的果实","artist":"莫文蔚","url":"http://sc1.111ttt.cn/2016/5/12/07/205071238389.mp3","cover":"/medias/music/cover2.png"},{"name":"千千阙歌","artist":"陈慧娴","url":"http://antiserver.kuwo.cn/anti.s?format=mp3|aac&rid=159783&type=convert_url&response=res","cover":"/medias/music/cover2.png"}]')
+    });
+});
+</script>
+                    
 
                     
 
