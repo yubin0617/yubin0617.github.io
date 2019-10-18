@@ -5,9 +5,9 @@
   <subtitle>狩猎</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://github.com/yubin0617/yubin0617.github.io/"/>
+  <link href="https://github.com/yubin0617/yubin0617.github.io/tree/master/"/>
   <updated>2019-10-18T12:47:06.051Z</updated>
-  <id>https://github.com/yubin0617/yubin0617.github.io/</id>
+  <id>https://github.com/yubin0617/yubin0617.github.io/tree/master/</id>
   
   <author>
     <name>舞动之獾</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>test1</title>
-    <link href="https://github.com/yubin0617/yubin0617.github.io/2019/10/18/test1/"/>
-    <id>https://github.com/yubin0617/yubin0617.github.io/2019/10/18/test1/</id>
+    <link href="https://github.com/yubin0617/yubin0617.github.io/tree/master/2019/10/18/test1/"/>
+    <id>https://github.com/yubin0617/yubin0617.github.io/tree/master/2019/10/18/test1/</id>
     <published>2019-10-18T12:39:10.000Z</published>
     <updated>2019-10-18T12:47:06.051Z</updated>
     
@@ -36,16 +36,16 @@
     </summary>
     
     
-      <category term="图片测试" scheme="https://github.com/yubin0617/yubin0617.github.io/tags/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/"/>
+      <category term="图片测试" scheme="https://github.com/yubin0617/yubin0617.github.io/tree/master/tags/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="代码测试" scheme="https://github.com/yubin0617/yubin0617.github.io/tags/%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95/"/>
+      <category term="代码测试" scheme="https://github.com/yubin0617/yubin0617.github.io/tree/master/tags/%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>test</title>
-    <link href="https://github.com/yubin0617/yubin0617.github.io/2019/10/18/test/"/>
-    <id>https://github.com/yubin0617/yubin0617.github.io/2019/10/18/test/</id>
+    <link href="https://github.com/yubin0617/yubin0617.github.io/tree/master/2019/10/18/test/"/>
+    <id>https://github.com/yubin0617/yubin0617.github.io/tree/master/2019/10/18/test/</id>
     <published>2019-10-18T09:23:27.000Z</published>
     <updated>2019-10-18T12:22:15.428Z</updated>
     
@@ -62,16 +62,16 @@
     </summary>
     
     
-      <category term="图片测试" scheme="https://github.com/yubin0617/yubin0617.github.io/tags/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/"/>
+      <category term="图片测试" scheme="https://github.com/yubin0617/yubin0617.github.io/tree/master/tags/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="代码测试" scheme="https://github.com/yubin0617/yubin0617.github.io/tags/%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95/"/>
+      <category term="代码测试" scheme="https://github.com/yubin0617/yubin0617.github.io/tree/master/tags/%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>《玉楼春》</title>
-    <link href="https://github.com/yubin0617/yubin0617.github.io/2019/04/06/yu-lou-chun/"/>
-    <id>https://github.com/yubin0617/yubin0617.github.io/2019/04/06/yu-lou-chun/</id>
+    <link href="https://github.com/yubin0617/yubin0617.github.io/tree/master/2019/04/06/yu-lou-chun/"/>
+    <id>https://github.com/yubin0617/yubin0617.github.io/tree/master/2019/04/06/yu-lou-chun/</id>
     <published>2019-04-06T06:07:21.177Z</published>
     <updated>2019-04-07T02:29:05.975Z</updated>
     
@@ -88,16 +88,16 @@
     </summary>
     
     
-      <category term="文学" scheme="https://github.com/yubin0617/yubin0617.github.io/tags/%E6%96%87%E5%AD%A6/"/>
+      <category term="文学" scheme="https://github.com/yubin0617/yubin0617.github.io/tree/master/tags/%E6%96%87%E5%AD%A6/"/>
     
-      <category term="宋词" scheme="https://github.com/yubin0617/yubin0617.github.io/tags/%E5%AE%8B%E8%AF%8D/"/>
+      <category term="宋词" scheme="https://github.com/yubin0617/yubin0617.github.io/tree/master/tags/%E5%AE%8B%E8%AF%8D/"/>
     
   </entry>
   
   <entry>
     <title>你好!hexo</title>
-    <link href="https://github.com/yubin0617/yubin0617.github.io/2018/09/20/ni-hao-hexo/"/>
-    <id>https://github.com/yubin0617/yubin0617.github.io/2018/09/20/ni-hao-hexo/</id>
+    <link href="https://github.com/yubin0617/yubin0617.github.io/tree/master/2018/09/20/ni-hao-hexo/"/>
+    <id>https://github.com/yubin0617/yubin0617.github.io/tree/master/2018/09/20/ni-hao-hexo/</id>
     <published>2018-09-19T16:23:05.000Z</published>
     <updated>2018-09-19T16:23:05.616Z</updated>
     
@@ -110,8 +110,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://github.com/yubin0617/yubin0617.github.io/2018/09/19/hello-world/"/>
-    <id>https://github.com/yubin0617/yubin0617.github.io/2018/09/19/hello-world/</id>
+    <link href="https://github.com/yubin0617/yubin0617.github.io/tree/master/2018/09/19/hello-world/"/>
+    <id>https://github.com/yubin0617/yubin0617.github.io/tree/master/2018/09/19/hello-world/</id>
     <published>2018-09-19T14:13:52.415Z</published>
     <updated>2017-10-28T00:39:58.000Z</updated>
     
