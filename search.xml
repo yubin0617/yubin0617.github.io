@@ -4,11 +4,37 @@
   
     
     <entry>
+      <title>test2</title>
+      <link href="/2019/10/18/test2/"/>
+      <url>/2019/10/18/test2/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>test</title>
+      <link href="/2019/10/18/test-1/"/>
+      <url>/2019/10/18/test-1/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>test3</title>
       <link href="/2019/10/18/test3/"/>
       <url>/2019/10/18/test3/</url>
       
-        <content type="html"><![CDATA[<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>using namespace std<span class="token punctuation">;</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"hello hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p><img src="/yubin0617/yubin0617.github.io/tree/master/2019/10/18/test3/hexo\source\_posts\test3\1.PNG" alt=""></p>]]></content>
+        <content type="html"><![CDATA[<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>using namespace std<span class="token punctuation">;</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"hello hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p><img src="//yubin0617.github.io/2019/10/18/test3/hexo\source\_posts\test3\1.PNG" alt=""></p>]]></content>
       
       
       
@@ -21,7 +47,7 @@
       <link href="/2019/10/18/test1/"/>
       <url>/2019/10/18/test1/</url>
       
-        <content type="html"><![CDATA[<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>using namespace std<span class="token punctuation">;</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"hello hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p><img src="/yubin0617/yubin0617.github.io/tree/master/2019/10/18/test1/hexo\source\_posts\test1\2.PNG" alt=""></p>]]></content>
+        <content type="html"><![CDATA[<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>using namespace std<span class="token punctuation">;</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"hello hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p><img src="//yubin0617.github.io/2019/10/18/test1/hexo\source\_posts\test1\2.PNG" alt=""></p>]]></content>
       
       
       
@@ -42,7 +68,7 @@
       <link href="/2019/10/18/test/"/>
       <url>/2019/10/18/test/</url>
       
-        <content type="html"><![CDATA[<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>using namespace std<span class="token punctuation">;</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"hello hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"hello word"</span><span class="token punctuation">)</span></code></pre><p><img src="/yubin0617/yubin0617.github.io/tree/master/2019/10/18/test/hexo\source\_posts\test\1.png" alt=""></p><p><img src="/yubin0617/yubin0617.github.io/tree/master/2019/10/18/test/hexo\source\_posts\test\2.PNG" alt=""></p><p><img src="/yubin0617/yubin0617.github.io/tree/master/2019/10/18/test/hexo\source\_posts\test\3.PNG" alt=""></p>]]></content>
+        <content type="html"><![CDATA[<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>using namespace std<span class="token punctuation">;</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"hello hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"hello word"</span><span class="token punctuation">)</span></code></pre><p><img src="//yubin0617.github.io/2019/10/18/test/hexo\source\_posts\test\1.png" alt=""></p><p><img src="//yubin0617.github.io/2019/10/18/test/hexo\source\_posts\test\2.PNG" alt=""></p><p><img src="//yubin0617.github.io/2019/10/18/test/hexo\source\_posts\test\3.PNG" alt=""></p>]]></content>
       
       
       
@@ -97,7 +123,7 @@
       <link href="/2018/09/19/hello-world/"/>
       <url>/2018/09/19/hello-world/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
       
       
       
