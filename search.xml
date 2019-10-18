@@ -17,19 +17,6 @@
     
     
     <entry>
-      <title>test</title>
-      <link href="/2019/10/18/test-1/"/>
-      <url>/2019/10/18/test-1/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>test3</title>
       <link href="/2019/10/18/test3/"/>
       <url>/2019/10/18/test3/</url>
@@ -37,48 +24,6 @@
         <content type="html"><![CDATA[<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>using namespace std<span class="token punctuation">;</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"hello hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p><img src="//yubin0617.github.io/2019/10/18/test3/hexo\source\_posts\test3\1.PNG" alt=""></p>]]></content>
       
       
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>test1</title>
-      <link href="/2019/10/18/test1/"/>
-      <url>/2019/10/18/test1/</url>
-      
-        <content type="html"><![CDATA[<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>using namespace std<span class="token punctuation">;</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"hello hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p><img src="//yubin0617.github.io/2019/10/18/test1/hexo\source\_posts\test1\2.PNG" alt=""></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 图片测试 </tag>
-            
-            <tag> 代码测试 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>test</title>
-      <link href="/2019/10/18/test/"/>
-      <url>/2019/10/18/test/</url>
-      
-        <content type="html"><![CDATA[<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>using namespace std<span class="token punctuation">;</span><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"hello hello"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"hello word"</span><span class="token punctuation">)</span></code></pre><p><img src="//yubin0617.github.io/2019/10/18/test/hexo\source\_posts\test\1.png" alt=""></p><p><img src="//yubin0617.github.io/2019/10/18/test/hexo\source\_posts\test\2.PNG" alt=""></p><p><img src="//yubin0617.github.io/2019/10/18/test/hexo\source\_posts\test\3.PNG" alt=""></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 图片测试 </tag>
-            
-            <tag> 代码测试 </tag>
-            
-        </tags>
       
     </entry>
     
