@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yubin0617.github.io/"/>
-  <updated>2019-10-18T14:11:46.053Z</updated>
+  <updated>2019-10-18T14:48:16.749Z</updated>
   <id>https://yubin0617.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://yubin0617.github.io/2019/10/18/test2/"/>
     <id>https://yubin0617.github.io/2019/10/18/test2/</id>
     <published>2019-10-18T13:47:06.000Z</published>
-    <updated>2019-10-18T14:11:46.053Z</updated>
+    <updated>2019-10-18T14:48:16.749Z</updated>
     
     <summary type="html">
     
@@ -29,34 +29,17 @@
       
         
         
-          &lt;img src=&quot;/2019/10/18/test2/2.PNG&quot; title=&quot;This is an example
+          &lt;img src=&quot;/2019/10/18/test2/2.PNG&quot; title=&quot;This is an example image&quot;&gt;
+&lt;pre class=&quot; language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token
         
       
     
     </summary>
     
     
-  </entry>
-  
-  <entry>
-    <title>test3</title>
-    <link href="https://yubin0617.github.io/2019/10/18/test3/"/>
-    <id>https://yubin0617.github.io/2019/10/18/test3/</id>
-    <published>2019-10-18T13:08:01.000Z</published>
-    <updated>2019-10-18T13:11:28.088Z</updated>
+      <category term="图片测试" scheme="https://yubin0617.github.io/tags/%E5%9B%BE%E7%89%87%E6%B5%8B%E8%AF%95/"/>
     
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;pre class=&quot; language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;#&lt;span class=&quot;token directive
-        
-      
-    
-    </summary>
-    
+      <category term="代码测试" scheme="https://yubin0617.github.io/tags/%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
