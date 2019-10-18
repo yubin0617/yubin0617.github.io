@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yubin0617.github.io/"/>
-  <updated>2019-10-18T10:47:09.321Z</updated>
+  <updated>2019-10-18T11:01:05.063Z</updated>
   <id>https://yubin0617.github.io/</id>
   
   <author>
@@ -21,9 +21,21 @@
     <link href="https://yubin0617.github.io/2019/10/18/test/"/>
     <id>https://yubin0617.github.io/2019/10/18/test/</id>
     <published>2019-10-18T09:23:27.000Z</published>
-    <updated>2019-10-18T10:47:09.321Z</updated>
+    <updated>2019-10-18T11:01:05.063Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre class=&quot; language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;#include&lt;iostream&gt;
+using namespace std;
+int main(){
+    printf(&quot;hello hello&quot;);
+   
+        
+      
     
     </summary>
     
