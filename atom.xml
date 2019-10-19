@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yubin0617.github.io/"/>
-  <updated>2019-10-18T14:54:20.030Z</updated>
+  <updated>2019-10-19T14:32:07.051Z</updated>
   <id>https://yubin0617.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java期中测试</title>
+    <link href="https://yubin0617.github.io/2019/10/19/javaa-qi-zhong-ce-shi/"/>
+    <id>https://yubin0617.github.io/2019/10/19/javaa-qi-zhong-ce-shi/</id>
+    <published>2019-10-19T13:40:52.000Z</published>
+    <updated>2019-10-19T14:32:07.051Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;Java程序设计期中考试&quot;&gt;&lt;a href=&quot;#Java程序设计期中考试&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="-java" scheme="https://yubin0617.github.io/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>test2</title>
