@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yubin0617.github.io/"/>
-  <updated>2019-10-21T15:16:52.246Z</updated>
+  <updated>2019-10-24T14:31:10.925Z</updated>
   <id>https://yubin0617.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>buuctf WarmUp</title>
+    <link href="https://yubin0617.github.io/2019/10/24/buuctf-warmup/"/>
+    <id>https://yubin0617.github.io/2019/10/24/buuctf-warmup/</id>
+    <published>2019-10-24T13:11:15.000Z</published>
+    <updated>2019-10-24T14:31:10.925Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;第一题就这么难，菜鸡一个，艰难的总结一下，还请大佬多多指正&lt;/p&gt;
+&lt;p&gt;题目提示，在注释中看到了source.php,访问一下，得到源码&lt;/p&gt;
+&lt;pre class=&quot; language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt; &lt;span
+        
+      
+    
+    </summary>
+    
+    
+      <category term="ctf buuctf" scheme="https://yubin0617.github.io/tags/ctf-buuctf/"/>
+    
+  </entry>
   
   <entry>
     <title>Roarctf部分wp</title>
