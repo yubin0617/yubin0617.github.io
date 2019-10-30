@@ -404,14 +404,14 @@ err">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2k
+                        2.5k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        9 分
+                        11 分
                     </div>
                     
                 
@@ -491,6 +491,37 @@ err">
 <p>hexdec(bin2hex（”字符串“）)字符串转为hex –&gt;10进制</p>
 <p>hex2bin(dechex(数字))  10进制转hex–&gt;字符串</p>
 <hr>
+<h5 id="easy-java"><a href="#easy-java" class="headerlink" title="easy java"></a>easy java</h5><img src="/2019/10/20/roarctf-bu-fen-wp/14.png">
+<p>出现登录框，以为是注入，注了半天也没有结果，偶然的爆破竟然登陆成功</p>
+<pre><code>admin888
+</code></pre><img src="/2019/10/20/roarctf-bu-fen-wp/15.png">
+<p>但是登进去也没啥用，只有张图片的绝对路径</p>
+<p>回想到有个help，get 请求失败，可以尝试post，发现可以读取文件，实现文件的任意读取</p>
+<p>但是读取什么文件呢？</p>
+<img src="/2019/10/20/roarctf-bu-fen-wp/16.png">
+<p>访问一个错误的文件，从报错信息发现，Apache Tomcat </p>
+<img src="/2019/10/20/roarctf-bu-fen-wp/17.png">
+<p><strong>补充</strong></p>
+<p>Apache Tomcat 是一款 Java Servlet 和 JavaServer Pages 技术的开源软件实现，可以作为测试 Servlet 的独立服务器，而且可以集成到 Apache Web 服务器</p>
+<p>Java Servlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层</p>
+<p>WEB-INF是Java的WEB应用的安全目录，是不可以通过URL直接访问到这个目录下的资源的；不过可以做一个业务逻辑处理，例如<code>servlet</code>，接收到请求的参数后可以跳转到想要的界面；</p>
+<p>如果想要在页面中访问其中的文件，必须通过web.xml文件对要访问的文件进行相应的映射才能访问；WEB-INF文件夹下还存在classes文件夹，里面放置了<code>*.class</code>文件</p>
+<p>Java Servlet部署：</p>
+<p>如果有一个类名称<code>com.wm.ctf.FlagController</code>，那么这个Servlet类必须位于<code>WEB-INF/classes/com/wm/ctf/FlagController.class</code>中；之后需要在web.xml中创建下列格式的条目：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>FlagController<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-class</span><span class="token punctuation">></span></span>com.wm.ctf.FlagController<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-class</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-mapping</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>FlagController<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url-pattern</span><span class="token punctuation">></span></span>/Flag<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url-pattern</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-mapping</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>访问/WEB-INF/web.xml,发现了FlagController</p>
+<img src="/2019/10/20/roarctf-bu-fen-wp/18.png">
+<p>推测下面的路径，<code>WEB-INF/classes/com/wm/ctf/FlagController.class</code></p>
+<img src="/2019/10/20/roarctf-bu-fen-wp/19.png">
+<p>找到base64编码，解码得到flag</p>
 <h4 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h4><h5 id="黄金六年"><a href="#黄金六年" class="headerlink" title="黄金六年"></a>黄金六年</h5><p>视频很短，播放一遍后发现存在二维码一闪而过，用暴风影音一帧一帧卡出四张二维码。</p>
 <img src="/2019/10/20/roarctf-bu-fen-wp/1.PNG">
 <img src="/2019/10/20/roarctf-bu-fen-wp/2.PNG">
@@ -1039,7 +1070,7 @@ m <span class="token operator">=</span> pow<span class="token punctuation">(</sp
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">3.4k</span>
+                <span class="white-color">3.8k</span>
             
 
             
