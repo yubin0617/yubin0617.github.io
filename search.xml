@@ -14,7 +14,9 @@
       
         <tags>
             
-            <tag> -crypto -hashlib </tag>
+            <tag> crypto </tag>
+            
+            <tag> hashlib </tag>
             
         </tags>
       
