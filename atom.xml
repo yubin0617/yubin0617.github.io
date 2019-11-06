@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yubin0617.github.io/"/>
-  <updated>2019-11-04T14:18:56.223Z</updated>
+  <updated>2019-11-06T13:59:05.617Z</updated>
   <id>https://yubin0617.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>wp部分</title>
+    <link href="https://yubin0617.github.io/2019/11/06/wp-bu-fen/"/>
+    <id>https://yubin0617.github.io/2019/11/06/wp-bu-fen/</id>
+    <published>2019-11-06T12:34:30.000Z</published>
+    <updated>2019-11-06T13:59:05.617Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;web&quot;&gt;&lt;a href=&quot;#web&quot; class=&quot;headerlink&quot; title=&quot;web&quot;&gt;&lt;/a&gt;web&lt;/h3&gt;&lt;h4 id=&quot;SSRF-me&quot;&gt;&lt;a href=&quot;#SSRF-me&quot; class=&quot;headerlink&quot; title=&quot;SSRF
+        
+      
+    
+    </summary>
+    
+    
+      <category term="wp" scheme="https://yubin0617.github.io/tags/wp/"/>
+    
+      <category term="de1ctf" scheme="https://yubin0617.github.io/tags/de1ctf/"/>
+    
+  </entry>
   
   <entry>
     <title>hashlib</title>
