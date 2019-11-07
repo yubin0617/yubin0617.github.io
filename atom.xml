@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yubin0617.github.io/"/>
-  <updated>2019-11-06T13:59:05.617Z</updated>
+  <updated>2019-11-07T14:18:59.946Z</updated>
   <id>https://yubin0617.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>浅尝ssti</title>
+    <link href="https://yubin0617.github.io/2019/11/07/qian-chang-ssti/"/>
+    <id>https://yubin0617.github.io/2019/11/07/qian-chang-ssti/</id>
+    <published>2019-11-07T13:40:43.000Z</published>
+    <updated>2019-11-07T14:18:59.946Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;hr&gt;
+&lt;h3 id=&quot;easy-tornado&quot;&gt;&lt;a href=&quot;#easy-tornado&quot; class=&quot;headerlink&quot; title=&quot;easy_tornado&quot;&gt;&lt;/a&gt;easy_tornado&lt;/h3&gt;&lt;p&gt;进入题目，发现了三个文件目录&lt;/p&gt;
+&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="ssti" scheme="https://yubin0617.github.io/tags/ssti/"/>
+    
+      <category term="ctf" scheme="https://yubin0617.github.io/tags/ctf/"/>
+    
+  </entry>
+  
+  <entry>
     <title>wp部分</title>
     <link href="https://yubin0617.github.io/2019/11/06/wp-bu-fen/"/>
     <id>https://yubin0617.github.io/2019/11/06/wp-bu-fen/</id>
     <published>2019-11-06T12:34:30.000Z</published>
-    <updated>2019-11-06T13:59:05.617Z</updated>
+    <updated>2019-11-06T14:01:52.861Z</updated>
     
     <summary type="html">
     
