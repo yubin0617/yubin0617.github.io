@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yubin0617.github.io/"/>
-  <updated>2019-11-07T14:18:59.946Z</updated>
+  <updated>2019-11-10T16:21:50.312Z</updated>
   <id>https://yubin0617.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>堆叠注入</title>
+    <link href="https://yubin0617.github.io/2019/11/09/dui-die-zhu-ru/"/>
+    <id>https://yubin0617.github.io/2019/11/09/dui-die-zhu-ru/</id>
+    <published>2019-11-09T01:17:10.000Z</published>
+    <updated>2019-11-10T16:21:50.312Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;强网杯随便注&quot;&gt;&lt;a href=&quot;#强网杯随便注&quot; class=&quot;headerlink&quot; title=&quot;强网杯随便注&quot;&gt;&lt;/a&gt;强网杯随便注&lt;/h3&gt;&lt;pre class=&quot; language-sql&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+    
+      <category term="ctf" scheme="https://yubin0617.github.io/tags/ctf/"/>
+    
+      <category term="堆叠注入" scheme="https://yubin0617.github.io/tags/%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>浅尝ssti</title>
@@ -38,9 +64,9 @@
     </summary>
     
     
-      <category term="ssti" scheme="https://yubin0617.github.io/tags/ssti/"/>
-    
       <category term="ctf" scheme="https://yubin0617.github.io/tags/ctf/"/>
+    
+      <category term="ssti" scheme="https://yubin0617.github.io/tags/ssti/"/>
     
   </entry>
   
