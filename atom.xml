@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yubin0617.github.io/"/>
-  <updated>2019-11-10T16:21:50.312Z</updated>
+  <updated>2019-11-14T01:57:50.585Z</updated>
   <id>https://yubin0617.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>强网杯高明的黑客</title>
+    <link href="https://yubin0617.github.io/2019/11/14/qiang-wang-bei-gao-ming-de-hei-ke/"/>
+    <id>https://yubin0617.github.io/2019/11/14/qiang-wang-bei-gao-ming-de-hei-ke/</id>
+    <published>2019-11-14T01:44:31.000Z</published>
+    <updated>2019-11-14T01:57:50.585Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;下载源码，写脚本遍历出可以利用的shell，cat flag&lt;/p&gt;
+&lt;p&gt;脚本：&lt;/p&gt;
+&lt;pre class=&quot; language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token
+        
+      
+    
+    </summary>
+    
+    
+      <category term="ctf" scheme="https://yubin0617.github.io/tags/ctf/"/>
+    
+      <category term="高明的黑客" scheme="https://yubin0617.github.io/tags/%E9%AB%98%E6%98%8E%E7%9A%84%E9%BB%91%E5%AE%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>堆叠注入</title>
