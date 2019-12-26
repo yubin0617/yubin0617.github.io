@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yubin0617.github.io/"/>
-  <updated>2019-11-14T01:57:50.585Z</updated>
+  <updated>2019-12-25T09:21:46.581Z</updated>
   <id>https://yubin0617.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ctf圣诞萌新赛</title>
+    <link href="https://yubin0617.github.io/2019/12/25/ctf-sheng-dan-meng-xin-sai/"/>
+    <id>https://yubin0617.github.io/2019/12/25/ctf-sheng-dan-meng-xin-sai/</id>
+    <published>2019-12-25T08:26:19.000Z</published>
+    <updated>2019-12-25T09:21:46.581Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;web&quot;&gt;&lt;a href=&quot;#web&quot; class=&quot;headerlink&quot; title=&quot;web&quot;&gt;&lt;/a&gt;web&lt;/h3&gt;&lt;h4 id=&quot;web1&quot;&gt;&lt;a href=&quot;#web1&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="ctf" scheme="https://yubin0617.github.io/tags/ctf/"/>
+    
+      <category term="萌新赛" scheme="https://yubin0617.github.io/tags/%E8%90%8C%E6%96%B0%E8%B5%9B/"/>
+    
+  </entry>
   
   <entry>
     <title>强网杯高明的黑客</title>

